@@ -4,14 +4,14 @@
 
 CpuScene::CpuScene(QObject *parent):QGraphicsScene(parent)
 {
-     this->setSceneRect(0, 0, 80, 80);
+     this->setSceneRect(80, 0, 160, 80);
     setDefaultWaveDataPen();
-    for(int i=0;i<100;i++)
+    for(int i=0;i<200;i++)
    {
             m_scaleLinesList.append(this->addLine(2*i,100,2*(i+1),100,m_waveDataPen));
            y.append(100);
    }
-    for(int i=0;i<100;i++)
+    for(int i=0;i<200;i++)
    {
             y[i]=100;
    }
@@ -28,11 +28,11 @@ void CpuScene::setDefaultWaveDataPen()
 
 void CpuScene::refresh(int cpu)
 {
-    for(int i=99;i>0;i--)
+    for(int i=199;i>0;i--)
    {
         y[i]=y[i-1];
    }
-    for(int i=0;i<99;i++)
+    for(int i=0;i<199;i++)
    {
         m_scaleLinesList[i]->setLine(2*i,y[i],2*(i+1),y[i+1]);
    }

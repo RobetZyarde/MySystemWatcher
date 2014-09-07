@@ -14,6 +14,8 @@ class label3 : public QWidget
 public:
     explicit label3(QWidget *parent = 0);
     ~label3();
+    void setnumber(int content);
+    void setopnumber(int content);
 
 private:
     Ui::label3 *ui;

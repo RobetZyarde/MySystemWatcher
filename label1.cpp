@@ -6,23 +6,38 @@ label1::label1(QWidget *parent) :
     ui(new Ui::label1)
 {
     ui->setupUi(this);
-    QLabel *a=ui->All;
-//实现方法如下： 构造函数中加入： QTimer *timer = new QTime
-   //r(this); connect(timer,SINGAL(timeout()),this,SLOT(timer_deal_slot_function()));
-   //槽函数这样写：（获取系统时间） QDateTime dateTime = QDateTime::currentDateTime(); int y=dateTime.date().year();
-   //int m=dateTime.date().month(); int d=dateTime.date().day(); QString strTime=dateTime.time().toString();
-   //ui->label->setText(strTime+" "+QString::number(y)+"/"+QString::number(m)+"/"+QString::number(d));
-   //显示时间格式为例如 12:24:33 2008/8/28 ￥
+   QLabel *a=ui->All;
+   a->setText("strALL");
+
    QLabel *c=ui->cache;
+   c->setText("strcache");
 
    QLabel *av=ui->available;
-
+   av->setText("stravailable");
 
    QLabel *f=ui->free;
-
+   f->setText("strfree");
 }
 
 label1::~label1()
 {
     delete ui;
 }
+
+void label1::setALL(int content){
+    ui->All->setText(QString::number(content,10));
+}
+
+
+void label1::setcache(int content){
+    ui->cache->setText(QString::number(content,10));
+}
+
+void label1::setavailable(int content){
+    ui->available->setText(QString::number(content,10));
+}
+
+void label1::setfree(int content){
+    ui->free->setText(QString::number(content,10));
+}
+

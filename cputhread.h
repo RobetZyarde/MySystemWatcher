@@ -6,7 +6,12 @@
 #include <QProgressBar>
 #include "qdebug.h"
 #include "windows.h"
+#include <tlhelp32.h>
+//#include <winternl.h>
+#include "psapi.h"
 
+#pragma comment (lib,"ntdll.lib")
+#pragma comment (lib,"psapi.lib")
 
 class CpuThread : public QThread
 {
@@ -17,11 +22,23 @@ public:
     void send();
     static CpuThread *app;
     void get_memory_usage();
+    void get_progress_information();
+    void get_system_information();
 protected:
     void run();
 signals:
     void cpuget(int cpu);
     void memoryget(int percent);
+    void phymemoryget(int total);
+    void available(int total);
+    void cache(int total);
+    void free(int total);
+    void process(int total);
+    void thread(int total);
+    void handler(int total);
+    void handon(int total1,int total2);
+    void paged(int total);
+    void nonpaged(int total);
 private:
    FILETIME preidleTime;
    FILETIME prekernelTime;
@@ -30,6 +47,13 @@ private:
    FILETIME kernelTime;
    FILETIME userTime;
    MEMORYSTATUSEX statex;
+   int threadnumber;
+   int progressnumber;
+   int handlernumber;
+   PROCESSENTRY32 pe32;
+   HANDLE hProcessSnap;
+   DWORD handle;
+   PERFORMANCE_INFORMATION mysystem1;
 };
 
 __int64 CompareFileTime ( FILETIME time1, FILETIME time2 );

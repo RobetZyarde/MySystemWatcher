@@ -4,11 +4,11 @@
 
 MemoryScene::MemoryScene(QObject *parent):QGraphicsScene(parent)
 {
-     this->setSceneRect(0, 0, 125, 100);
+     this->setSceneRect(80, -10, 160, 100);
     setDefaultWaveDataPen();
     for(int i=0;i<200;i++)
    {
-            m_scaleLinesList.append(this->addLine(i,100,(i+1),100,m_waveDataPen));
+            m_scaleLinesList.append(this->addLine(2*i,100,2*(i+1),100,m_waveDataPen));
            y.append(100);
    }
     for(int i=0;i<200;i++)
@@ -34,7 +34,7 @@ void MemoryScene::refresh(int Memory)
    }
     for(int i=0;i<199;i++)
    {
-        m_scaleLinesList[i]->setLine(i,y[i],(i+1),y[i+1]);
+        m_scaleLinesList[i]->setLine(2*i,y[i],2*(i+1),y[i+1]);
    }
     y[0]=100-Memory;
 
