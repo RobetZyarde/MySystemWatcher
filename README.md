@@ -2,7 +2,7 @@ MySystemWatcher
 ===============
 
 mainwindow
- --Tab
+ 	--Tab
   --进程
   --性能
     --CpuState
