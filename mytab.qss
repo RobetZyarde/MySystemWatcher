@@ -1,12 +1,17 @@
 ﻿
+QTabWidget{
+    border: 2px solid #C2C7CB;
+  }
+
 QTabWidget::pane { /* The tab widget frame */
-    border-bottom: 2px solid #C2C7CB;
-    border-top: 2px solid #C2C7CB;
+    border-bottom: 1px solid #32435E;
+    background-color:rgb(255,255,255);
 }
 
   
 QTabWidget::tab-bar {  
-    left: 0px; /* move to the right by 5px */
+    left: 4px; /* move to the right by 5px */
+    border-bottom: 2px solid #C2C7CB;
 }  
   
 /* Style the tab using the tab sub-control. Note that 
@@ -22,7 +27,6 @@ QTabBar::tab {
     max-width: 50px;
     min-width:50px;
     min-height:20px;
-
     padding: 2px;  
 }  
   
@@ -33,10 +37,12 @@ QTabBar::tab:selected, QTabBar::tab:hover {
 }  
   
 QTabBar::tab:selected {  
-    border-color: #9B9B9B;  
-    border-bottom-color: #C2C7CB; /* same as pane color */  
+    border-color: #9B9B9B;
+    background-color:rgb(255,255,255);
+    border-bottom-color: rgb(255,255,255); /* same as pane color */
 }  
   
 QTabBar::tab:!selected {  
-    margin-top: 2px; /* make non-selected tabs look smaller */  
+    margin-top: 2px; /* make non-selected tabs look smaller */
+    border-bottom: 2px solid #C2C7CB;
 }  

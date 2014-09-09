@@ -7,6 +7,7 @@
 #include <QMessageBox>
 #include <QStatusBar>
 #include <QToolBar>
+#include <QFile>
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -15,8 +16,11 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    QFile  qss(":/qss/mytab.qss");
+    qss.open(QFile::ReadOnly);
     ui->setupUi(this);
     mytab *tab = new mytab;
+    tab->setStyleSheet(qss.readAll());
     this->setCentralWidget(tab);
     setWindowTitle(tr("Windows任务管理器"));
         myStatus_1 = new QLabel;

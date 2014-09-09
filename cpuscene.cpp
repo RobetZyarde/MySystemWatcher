@@ -4,7 +4,7 @@
 
 CpuScene::CpuScene(QObject *parent):QGraphicsScene(parent)
 {
-     this->setSceneRect(80, 0, 160, 80);
+     this->setSceneRect(80, 0, 160, 100);
     setDefaultWaveDataPen();
     for(int i=0;i<200;i++)
    {
