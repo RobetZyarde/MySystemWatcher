@@ -1,4 +1,5 @@
-﻿#ifndef CPUSTATE_H
+﻿void on_progressBar_2_valueChanged(int value);
+#ifndef CPUSTATE_H
 #define CPUSTATE_H
 
 #include <QWidget>

@@ -44,5 +44,6 @@ FORMS    += mainwindow.ui \
 RESOURCES += \
     resource.qrc
 
+LIBS += -lpsapi
 
 

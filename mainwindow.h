@@ -21,7 +21,10 @@ public:
 private:
     Ui::MainWindow *ui;
      QAction *openAction;
-     void open();
+     void open();   
+     QLabel *myStatus_1;
+     QLabel *myStatus_2;
+     QLabel *myStatus_3;
 };
 
 #endif // MAINWINDOW_H

@@ -41,7 +41,6 @@ int CpuThread::get_cpu_usage()
      prekernelTime = kernelTime;
      preuserTime = userTime ;
      return cpu;
-
 }
 
 
@@ -84,12 +83,16 @@ void CpuThread::send(){
 }
 
 void CpuThread::run() {
+    int cpu;
  //   QTimer *timer = new QTimer(this);
    // connect(timer, &QTimer::timeout,this,&CpuThread::send);
    // timer->start(500);
         while(true){
-            emit cpuget(get_cpu_usage());
+            cpu = get_cpu_usage();
             get_memory_usage();
+            QString a = QString::number(cpu,10);
+            QString b = QString::number(statex.dwMemoryLoad,10);
+            emit cpuget(cpu);
             get_system_information();
             emit memoryget(statex.dwMemoryLoad);
             emit phymemoryget(statex.ullTotalPhys/(1024*1024));
@@ -103,6 +106,10 @@ void CpuThread::run() {
             emit handon((statex.ullTotalPageFile-statex.ullAvailPageFile)/(1024*1024),statex.ullTotalPageFile/(1024*1024));
             emit paged(mysystem1.KernelPaged*(mysystem1.PageSize)/(1024*1024));
             emit nonpaged(mysystem1.KernelNonpaged*(mysystem1.PageSize)/(1024*1024));
+            emit memory_Q(tr("物理内存：  ")+b+tr("%"));
+            emit cpu_Q(tr("CPU使用率：  ")+a+tr("%"));
+            QString c = QString::number(mysystem1.ProcessCount,10);
+            emit process_Q(tr("进程数：  ")+c);
            QThread::msleep(500);
         }
 }

@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/qss">
         <file>mytab.qss</file>
+        <file>ledlit.bmp</file>
+        <file>ledunlit.bmp</file>
+        <file>numbers.bmp</file>
     </qresource>
 </RCC>

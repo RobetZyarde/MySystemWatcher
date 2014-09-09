@@ -10,8 +10,9 @@
 //#include <winternl.h>
 #include "psapi.h"
 
-#pragma comment (lib,"ntdll.lib")
-#pragma comment (lib,"psapi.lib")
+//#pragma comment (lib,"ntdll.lib")
+//#pragma comment (lib,"psapi.lib")
+
 
 class CpuThread : public QThread
 {
@@ -39,6 +40,9 @@ signals:
     void handon(int total1,int total2);
     void paged(int total);
     void nonpaged(int total);
+    void memory_Q(QString b);
+    void cpu_Q(QString a);
+    void process_Q(QString c);
 private:
    FILETIME preidleTime;
    FILETIME prekernelTime;

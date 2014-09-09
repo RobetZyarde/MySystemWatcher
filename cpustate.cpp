@@ -50,6 +50,8 @@ CpuState::CpuState(QWidget *parent) :
     gridLayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
     ui->graphicsView->resize(100,60);
      ui->graphicsView_2->resize(100,60);
+     ui->progressBar_2->setTextVisible(false);
+     ui->progressBar_3->setTextVisible(false);
 }
 
 CpuState::~CpuState()
